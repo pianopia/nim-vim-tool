@@ -4,14 +4,8 @@ scriptencoding utf-8
 if exists('g:nimvimtool')
     finish
 endif
-let g:memovim = 1
-
-" ユーザー設定の停止
-let s:save_cpo = &cpo
-set cpo&vim
+let g:nimvimtool = 1
 
 command! -nargs=0 NimTmp call nimvimtool#NimTmp(getline('.'))
 
-" ユーザー設定の再開
-let &cpo = s:save_cpo
-unlet s:save_cpo
+command! -nargs=0 NimStdImport call nimvimtool#NimStdImport(getline('.'))

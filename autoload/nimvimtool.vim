@@ -6,18 +6,18 @@ if !exists('g:nimvimtool')
 endif
 let g:nimvimtool = 1
 
-" ユーザー設定の停止
-let s:save_cpo = &cpo
-set cpo&vim
-
 " Nimのテンプレートを作成
 function! nimvimtool#NimTmp(line)
-    :let input = "#? stdtmpl | standard\n#\n#proc genTop(): string =\n  # result = \"\""
+    :let input = "#? stdtmpl | standard\r\n#\r\n#proc genTop(): string =\r\n#  result = \"\""
     :let pos = getpos(".")
     :execute ":normal i" . input
     :call setpos('.', pos)
 endfunction
 
-" ユーザー設定再開
-let &cpo = s:save_cpo
-unlet s:save_cpo
+" 定番のimport
+function! nimvimtool#NimStdImport(line)
+    :let input = "import os, system, macros, strutils, strformat, json"
+    :let pos = getpos(".")
+    :execute ":normal i" . input
+    :call setpos('.', pos)
+endfunction
