@@ -8,7 +8,11 @@ let g:nimvimtool = 1
 
 " Nimのテンプレートを作成
 function! nimvimtool#NimTmp(line)
-    :let input = "#? stdtmpl | standard\r\n#\r\n#proc genTop(): string =\r\n#  result = \"\""
+    :let input = "#? stdtmpl | standard"
+              \ ."\r\n"
+              \ ."#\r\n"
+              \ ."#proc genTop(): string =\r\n"
+              \ ."#  result = \"\""
     :let pos = getpos(".")
     :execute ":normal i" . input
     :call setpos('.', pos)
